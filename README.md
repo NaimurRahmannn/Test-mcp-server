@@ -27,7 +27,7 @@ Use the actual pull request number in place of `PULL_NUMBER`:
 
 ```json
 {
-  "installation_id": 148549890,
+  "installation_id": "your install id",
   "repository": {
     "owner": "NaimurRahmannn",
     "name": "Test-mcp-server"

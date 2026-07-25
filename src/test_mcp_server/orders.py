@@ -28,3 +28,9 @@ def create_order(order_id: str, customer_id: str, amount_cents: int) -> Order:
         amount_cents=amount_cents,
     )
 
+
+def order_total(order: Order) -> int:
+    """Return the order total in minor currency units."""
+
+    return order.amount_cents
+

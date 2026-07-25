@@ -3,10 +3,16 @@
 import hmac
 
 
-def validate_bearer_token(provided: str, expected: str) -> bool:
-    """Compare non-empty bearer tokens without leaking timing information."""
+def validate_bearer_token(authorization: str, expected: str) -> bool:
+    """Parse and compare a bearer credential without leaking timing information."""
 
-    if not provided or not expected:
+    scheme, separator, provided = authorization.partition(" ")
+    if (
+        not separator
+        or scheme.casefold() != "bearer"
+        or not provided
+        or not expected
+    ):
         return False
     return hmac.compare_digest(provided, expected)
 

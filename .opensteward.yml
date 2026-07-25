@@ -1,0 +1,43 @@
+version: 1
+
+pull_requests:
+  linked_issue_required_for:
+    - public_api
+    - architecture
+    - database_migration
+    - security
+    - dependency_addition
+  tests_required_for:
+    - bug_fix
+    - observable_behavior
+    - public_api
+    - security
+  preferred_maximum_diff_lines: 120
+
+protected_paths:
+  - pattern: src/test_mcp_server/security/**
+    risk: critical
+    human_review_required: true
+  - pattern: migrations/**
+    risk: high
+    human_review_required: true
+  - pattern: .github/workflows/**
+    risk: high
+    human_review_required: true
+  - pattern: pyproject.toml
+    risk: medium
+    human_review_required: true
+
+review:
+  maximum_pending_reviews_per_reviewer: 5
+  required_approvals:
+    default: 1
+    public_api: 2
+    security: 2
+
+automation:
+  publish_check_runs: false
+  publish_comments: false
+  apply_labels: false
+  require_human_approval: true
+

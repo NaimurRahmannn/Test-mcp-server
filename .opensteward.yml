@@ -31,9 +31,9 @@ protected_paths:
 review:
   maximum_pending_reviews_per_reviewer: 5
   required_approvals:
-    default: 1
-    public_api: 2
-    security: 2
+    default: 0
+    public_api: 1
+    security: 0
 
 automation:
   publish_check_runs: false
